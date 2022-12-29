@@ -3,7 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.chrome.options import Options
-import chromedriver_binary
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import os.path
 import argparse
@@ -29,7 +30,7 @@ cert_pem = os.path.abspath(args.cert)
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
-driver = webdriver.Chrome(options=chrome_options)
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
 def plesk_login():
     driver.get(PLESK_URL)

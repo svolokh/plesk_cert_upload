@@ -1,2 +1,2 @@
 selenium ~= 4.4.3
-chromedriver-binary-auto ~= 0.2.0
+webdriver-manager ~= 3.8.5
